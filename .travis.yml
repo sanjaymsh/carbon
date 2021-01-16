@@ -1,0 +1,8 @@
+os: linux
+arch:
+   - amd64
+   - ppc64le
+script:
+   - if [ "$TRAVIS_ARCH" = "amd64" ]; then yarn install --offline ; fi
+   - if [ "$TRAVIS_ARCH" = "ppc64le" ]; then sudo apt update -y && sudo apt install -y yarn; fi
+   - yarn build
